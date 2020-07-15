@@ -1,0 +1,16 @@
+{
+  "name": "request-tester",
+  "version": "1.0.0",
+  "description": "App created to create route to simulate requests",
+  "main": "request-tester.js",
+  "scripts": {
+    "test": "nodemon request-tester.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "nodemon": "^2.0.4",
+    "restify": "^8.5.1",
+    "restify-cors-middleware": "^1.1.1"
+  }
+}
