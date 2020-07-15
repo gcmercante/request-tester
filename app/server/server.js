@@ -27,6 +27,6 @@ server.use(restify.plugins.bodyParser({
 server.server.setTimeout(60000 * 60);
 router(server);
 
-server.listen(9876, () => console.log('app listening at ' + 9876));
+server.listen(process.env.PORT, () => console.log('app listening at ' + process.env.PORT));
 
 module.exports = server;
