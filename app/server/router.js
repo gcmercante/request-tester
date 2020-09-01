@@ -1,3 +1,5 @@
+const rabbitmq = require(__base + 'app/lib/rabbitmq');
+
 const router = server => {
     server.get('/ping', (req, res) => res.send(200, 'pong'));
 
@@ -29,6 +31,12 @@ const router = server => {
        } else {
            res.send(500, 'REQUEST FAIL');
        }
+    });
+
+    server.get('/import', async (req, res) => {
+        await rabbitmq.assertQueue('pointer-sms-import');
+        rabbitmq.sendMessage('pointer-sms-import', JSON.stringify({ smsmailing_id: 273, queue: 'pointer-sms-import' }));
+        res.send(200, 'ok')
     });
 }
 
